@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
   <style>
-    .body-container {
-      /* visibility: hidden; */
-    }
     .quiz-form {
       display: flex;
       flex-direction: column;
@@ -24,118 +21,71 @@
 <body>
   <div class="body-container">
     <form class="quiz-form">
-      <div class="question-container">
-        <p>Question 1</p>
-        <input id="question-1-a" type="radio" name="question-1" value="a" />
-        <label for="question-1-a"></label>A<br />
-        <input id="question-1-b" type="radio" name="question-1" value="b" />
-        <label for="question-1-b"></label>B<br />
-        <input id="question-1-c" type="radio" name="question-1" value="c" />
-        <label for="question-1-c"></label>C<br />
-        <input id="question-1-d" type="radio" name="question-1" value="d" />
-        <label for="question-1-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 2</p>
-        <input id="question-2-a" type="radio" name="question-2" value="a" />
-        <label for="question-2-a"></label>A<br />
-        <input id="question-2-b" type="radio" name="question-2" value="b" />
-        <label for="question-2-b"></label>B<br />
-        <input id="question-2-c" type="radio" name="question-2" value="c" />
-        <label for="question-2-c"></label>C<br />
-        <input id="question-2-d" type="radio" name="question-2" value="d" />
-        <label for="question-2-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 3</p>
-        <input id="question-3-a" type="radio" name="question-3" value="a" />
-        <label for="question-3-a"></label>A<br />
-        <input id="question-3-b" type="radio" name="question-3" value="b" />
-        <label for="question-3-b"></label>B<br />
-        <input id="question-3-c" type="radio" name="question-3" value="c" />
-        <label for="question-3-c"></label>C<br />
-        <input id="question-3-d" type="radio" name="question-3" value="d" />
-        <label for="question-3-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 4</p>
-        <input id="question-4-a" type="radio" name="question-4" value="a" />
-        <label for="question-4-a"></label>A<br />
-        <input id="question-4-b" type="radio" name="question-4" value="b" />
-        <label for="question-4-b"></label>B<br />
-        <input id="question-4-c" type="radio" name="question-4" value="c" />
-        <label for="question-4-c"></label>C<br />
-        <input id="question-4-d" type="radio" name="question-4" value="d" />
-        <label for="question-4-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 5</p>
-        <input id="question-5-a" type="radio" name="question-5" value="a" />
-        <label for="question-5-a"></label>A<br />
-        <input id="question-5-b" type="radio" name="question-5" value="b" />
-        <label for="question-5-b"></label>B<br />
-        <input id="question-5-c" type="radio" name="question-5" value="c" />
-        <label for="question-5-c"></label>C<br />
-        <input id="question-5-d" type="radio" name="question-5" value="d" />
-        <label for="question-5-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 6</p>
-        <input id="question-6-a" type="radio" name="question-6" value="a" />
-        <label for="question-6-a"></label>A<br />
-        <input id="question-6-b" type="radio" name="question-6" value="b" />
-        <label for="question-6-b"></label>B<br />
-        <input id="question-6-c" type="radio" name="question-6" value="c" />
-        <label for="question-6-c"></label>C<br />
-        <input id="question-6-d" type="radio" name="question-6" value="d" />
-        <label for="question-6-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 7</p>
-        <input id="question-7-a" type="radio" name="question-7" value="a" />
-        <label for="question-7-a"></label>A<br />
-        <input id="question-7-b" type="radio" name="question-7" value="b" />
-        <label for="question-7-b"></label>B<br />
-        <input id="question-7-c" type="radio" name="question-7" value="c" />
-        <label for="question-7-c"></label>C<br />
-        <input id="question-7-d" type="radio" name="question-7" value="d" />
-        <label for="question-7-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 8</p>
-        <input id="question-8-a" type="radio" name="question-8" value="a" />
-        <label for="question-8-a"></label>A<br />
-        <input id="question-8-b" type="radio" name="question-8" value="b" />
-        <label for="question-8-b"></label>B<br />
-        <input id="question-8-c" type="radio" name="question-8" value="c" />
-        <label for="question-8-c"></label>C<br />
-        <input id="question-8-d" type="radio" name="question-8" value="d" />
-        <label for="question-8-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 9</p>
-        <input id="question-9-a" type="radio" name="question-9" value="a" />
-        <label for="question-9-a"></label>A<br />
-        <input id="question-9-b" type="radio" name="question-9" value="b" />
-        <label for="question-9-b"></label>B<br />
-        <input id="question-9-c" type="radio" name="question-9" value="c" />
-        <label for="question-9-c"></label>C<br />
-        <input id="question-9-d" type="radio" name="question-9" value="d" />
-        <label for="question-9-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 10</p>
-        <input id="question-10-a" type="radio" name="question-10" value="a" />
-        <label for="question-10-a"></label>A<br />
-        <input id="question-10-b" type="radio" name="question-10" value="b" />
-        <label for="question-10-b"></label>B<br />
-        <input id="question-10-c" type="radio" name="question-10" value="c" />
-        <label for="question-10-c"></label>C<br />
-        <input id="question-10-d" type="radio" name="question-10" value="d" />
-        <label for="question-10-d"></label>D<br />
-      </div>
-      <input type="submit" style="width: 200px; height: 50px;" />
     </form>
   </div>
+  <script>
+    var quizForm = document.getElementsByClassName("quiz-form")[0];
+    var quizQuestions = [
+      {
+        prompt: "Pick a fruit",
+        choices: {
+          A: "Apple",
+          B: "Banana",
+          C: "Cherry",
+          D: "Date",
+        },
+        answer: "A"
+      },
+      {
+        prompt: "Pick a color",
+        choices: {
+          A: "Blue",
+          B: "Green",
+          C: "Purple",
+          D: "Red",
+        },
+        answer: "A"
+      },
+    ];
+
+    let questionNumber = 1;
+    for (question of quizQuestions) {
+      let questionContainer = document.createElement("div");
+      questionContainer.className = "question-container";
+      let questionHeader = document.createElement("p");
+      questionHeader.innerHTML = `Question ${questionNumber}`;
+      let questionPrompt = document.createElement("p");
+      questionPrompt.innerHTML = question.prompt;
+      questionContainer.appendChild(questionHeader);
+      questionContainer.appendChild(questionPrompt);
+
+      for (choice in question.choices) {
+        let questionChoice = document.createElement("input");
+        questionChoice.id = `question-${questionNumber}-${choice}`;
+        questionChoice.type = "radio"
+        questionChoice.name = `question-${questionNumber}`
+        questionChoice.value = choice;
+
+        let choiceLabel = document.createElement("label");
+        choiceLabel.htmlFor = questionChoice.id;
+        choiceLabel.innerHTML = question.choices[choice];
+
+        let questionBr = document.createElement("br");
+
+        questionContainer.appendChild(questionChoice);
+        questionContainer.appendChild(choiceLabel);
+        questionContainer.appendChild(questionBr);
+      }
+
+      questionNumber++;
+      quizForm.appendChild(questionContainer);
+    }
+
+    var submitButton = document.createElement("input");
+    submitButton.type = "submit";
+    submitButton.style.width = "200px";
+    submitButton.style.height = "50px";
+    quizForm.appendChild(submitButton);
+  </script>
 </body>
 </html>
