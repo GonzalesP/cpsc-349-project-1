@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+<style>
+body{background-color: antiquewhite;}
+
+.container{border: 2px blue solid; width: 50%;
+
+background-color: aquamarine;
+font-family: 'Times New Roman', Times, serif; font-size: x-large;}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>
+<script>
+    var q = document.getElementById("q1")
+    var t=document.getElementById("testbtn")
+
+    function display1(){localStorage.setItem('num',"q1")
+    document.getElementById("test").innerHTML="<a href='quiz.html' id='testbtn'>Quiz 1 selected</a>"
+}
+    function display2(){localStorage.setItem('num',"q2")
+    document.getElementById("test").innerHTML="<a href='quiz.html' id='testbtn'>Quiz 2 selected</a>"
+}
+   
+</script>
+</head>
+<body>
+    <h1>Menu</h1>
+<div class="form">
+    <div class="container" id="q1"><button onclick="display1()">Quiz1</button> <br><p>Random Questions</p></div><br>
+    
+    
+    <div class="container" id="q2">
+        
+    <button onclick="display2()">Quiz2</button><p>Math all basic symbols +,-,etc</p></div><br>
+    
+   
+<div id="test"><a href="quiz.html" id="test">Default Quiz 1</a></div>
+    
+</div>    
+</body>
+</html>

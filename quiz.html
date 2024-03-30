@@ -4,52 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
-  <style>
-    .quiz-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 2px red solid;
-    }
-    .question-container {
-      width: 900px;
-      border: 2px black solid;
-      padding: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+ 
+  <div class="container" id="q1"><a href="menu.html">Back</a> <br></div><br>
   <div class="body-container">
     <form class="quiz-form">
-    </form>
-  </div>
-  <script>
+    </form>  
+</div>
+<script src="questions.js"></script>
+<script>
+
+var num=localStorage.getItem("num")
+
     var quizForm = document.getElementsByClassName("quiz-form")[0];
-    var quizQuestions = [
-      {
-        prompt: "Pick a fruit",
-        choices: {
-          A: "Apple",
-          B: "Banana",
-          C: "Cherry",
-          D: "Date",
-        },
-        answer: "A"
-      },
-      {
-        prompt: "Pick a color",
-        choices: {
-          A: "Blue",
-          B: "Green",
-          C: "Purple",
-          D: "Red",
-        },
-        answer: "A"
-      },
-    ];
 
     let questionNumber = 1;
-    for (question of quizQuestions) {
+    
+  if (num=="q2"){
+    var quizQuestions=quiz2;
+  }
+  else{
+    var quizQuestions=quiz;
+  }
+    for (i=0;i<10;i++)
+    {
+    let random = Math.floor(Math.random()*quizQuestions.length);
+    let question=quizQuestions[random];   //randomizes questions    
       let questionContainer = document.createElement("div");
       questionContainer.className = "question-container";
       let questionHeader = document.createElement("p");
