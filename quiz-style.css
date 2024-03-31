@@ -1,0 +1,94 @@
+/*this is the <form> that contains all of the questions, choices, etc.
+  the following style will make the containers centered and will display them
+  in a column-based direction.*/
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*each question is given a <div>, which contains all of the related elements
+  (e.g. the question number, prompt, radio inputs, labels, etc.)
+  the following style will give the <div> container a black border
+  and some spacing*/
+.question-container {
+  width: 900px;
+  border: 2px black solid;
+
+  margin-top: 32px;
+  padding-bottom: 20px;
+}
+
+/*inside each question-container <div> is an <h1> element that identifies the
+  respective question number (e.g. "Question 1")
+  the following style will give it a lightgray background,
+  bigger sans-serif text, and some spacing*/
+.question-container > h1 {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+
+  background-color: lightgray;
+  border-bottom: 1px black solid;
+
+  margin: 0px;
+  padding: 8px 16px;
+}
+
+/*inside each question-container is a <p> element that displays
+  the question's prompt (e.g. "what is 2+2?").
+  the following style makes the text slightly bigger and adds spacing*/
+.question-container > p {
+  font-family: sans-serif;
+  font-size: 18px;
+
+  margin: 20px 16px;
+}
+
+/*each choice of a question (e.g. A, B, C, D) is represented by a radio input
+  and a label indicating the choice's value
+  the following styles are used to edit the appearance of the label and add
+  spacing for the block that corresponds to the radio input and label*/
+.question-container > input {
+  margin: 0px 12px 8px 16px;
+}
+.question-container > label {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/*this is the button that the user presses to submit their answers.
+  the following style will make the button bigger and blue */
+.quiz-submit {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+
+  background-color: #0d6efd;
+  color: #ffffff;
+  border: 2px black solid;
+  border-radius: 16px;
+  
+  margin-top: 32px;
+}
+
+/*when the user submits their choices, the web page will display their score
+  in a <p> element at the bottom of the page.
+  the following style is used to make this score text bigger and bold*/
+.quiz-score {
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0px 0px 0px;
+}
+
+/*whenever the user gets a question wrong, a <p> element will be added
+  underneath the question's <div> container. the <p> element will indicate what
+  the question's correct choice was.
+  the following style is used to make the <p> element slightly bigger,
+  as well as add some spacing.*/
+.quiz-correction {
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 20px 0px 0px 0px;
+}

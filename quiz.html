@@ -4,205 +4,217 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
-  <style>
-    .quiz-form {  /* the <form> that contains all of the questions*/
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .question-container {  /* each question has a <div> that contains all of its components: header, prompt, and choices */
-      width: 900px;
-      border: 2px black solid;
 
-      margin-top: 32px;
-      padding-bottom: 20px;
-    }
-    .question-container > h1 {  /* question header: bigger font, bold, and different background */
-      font-family: sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-
-      background-color: lightgray;
-      border-bottom: 1px black solid;
-
-      margin: 0px;
-      padding: 8px 16px;
-    }
-    .question-container > p {  /* question prompt: slightly bigger font*/
-      font-family: sans-serif;
-      font-size: 18px;
-
-      margin: 20px 16px;
-    }
-    .question-container > input {  /* add some margins around the radio inputs */
-      margin: 0px 12px 8px 16px;
-    }
-    .question-container > label {  /* make text of choices slightly larger*/
-      font-family: sans-serif;
-      font-size: 16px;
-    }
-    .quiz-submit {  /* make the submit-button wider, and make its text larger*/
-      width: 200px;
-      height: 50px;
-      font-size: 20px;
-
-      background-color: #0d6efd;
-      color: #ffffff;
-      border: 2px black solid;
-      border-radius: 16px;
-      
-      margin-top: 32px;
-    }
-    .quiz-correction {
-      font-family: sans-serif;
-      font-size: 16px;
-      margin: 20px 0px 0px 0px;
-    }
-    .quiz-score {
-      font-family: sans-serif;
-      font-size: 30px;
-      font-weight: bold;
-      margin: 20px 0px 0px 0px;
-    }
-  </style>
+  <!-- import the CSS for the quiz (read quiz-style.css for more info) -->
+  <link rel="stylesheet" type="text/css" href="quiz-style.css" />
 </head>
 <body>
-  <div class="body-container">
-    <form class="quiz-form">
-    </form>
-  </div>
-  <script>
-    var quizForm = document.getElementsByClassName("quiz-form")[0];
-    var quizQuestions = [
-      {
-        prompt: "Pick a fruit",
-        choices: {
-          A: "Apple",
-          B: "Banana",
-          C: "Cherry",
-          D: "Date",
-        },
-        answer: "A"
-      },
-      {
-        prompt: "Pick a color",
-        choices: {
-          A: "Blue",
-          B: "Green",
-          C: "Purple",
-          D: "Red",
-        },
-        answer: "A"
-      },
-    ];
+  <!-- this <form> will contain all of the elements related to the quiz
+    (e.g. questions, choices, etc.) -->
+  <form class="quiz-form">
+  </form>
 
-    let questionNumber = 1;
+
+  <!-- this script imports the JSON arrays of each quiz. the JSON array
+    contains all of the questions and related info of each quiz
+    (read questions.js for more info) -->
+  <script src="questions.js"></script>
+
+
+  <!-- this script is used to dynamically update the page's appearance -->
+  <script>
+    // quizForm represents the <form> element inside the <body>
+    var quizForm = document.getElementsByClassName("quiz-form")[0];
+    var quizQuestions = quiz1;
+
+    // the following code is used to create a question's related elements
+    // it is applied to all questions (objects) of the quiz (array)
+
+    let questionNumber = 1;  // keep track of question number (e.g. Question 1)
     for (question of quizQuestions) {
+      // first, a <div> is created to group these related elements. it will use
+      // the question-container style
       let questionContainer = document.createElement("div");
       questionContainer.id = `question-${questionNumber}-container`
       questionContainer.className = "question-container";
 
+      // then, an <h1> is created to indicate the question's number
+      // (e.g. Question 1, Question 2, etc.)
       let questionHeader = document.createElement("h1");
       questionHeader.id = `question-${questionNumber}-header`
       questionHeader.innerHTML = `Question ${questionNumber}`;
 
+      // next, a <p> is created to display the question's prompt
+      // (e.g. "What is 2+2?")
       let questionPrompt = document.createElement("p");
       questionPrompt.innerHTML = question.prompt;
 
+      // the <h1> and <p> elements are added into the <div>
       questionContainer.appendChild(questionHeader);
       questionContainer.appendChild(questionPrompt);
 
+      // next, for each choice of the question, a radio <input> and <label>
+      // will be created using the for in loop below. there will be
+      // a total of 4 <inputs> and <labels> created for each question (A,B,C,D)
       for (choice in question.choices) {
+        // create the radio <input>
         let questionChoice = document.createElement("input");
         questionChoice.id = `question-${questionNumber}-${choice}`;
         questionChoice.type = "radio"
-        questionChoice.name = `question-${questionNumber}`
-        questionChoice.value = choice;
+        questionChoice.name = `question-${questionNumber}`  // input name
+        questionChoice.value = choice;  // input value (i.e. question choice)
 
+        // create the <label>
         let choiceLabel = document.createElement("label");
-        choiceLabel.htmlFor = questionChoice.id;
-        choiceLabel.innerHTML = question.choices[choice];
+        choiceLabel.htmlFor = questionChoice.id;  // input 'for' attribute
+        choiceLabel.innerHTML = question.choices[choice];  // choie text
 
+        // create a <br> to move the next input onto a separate line
         let questionBr = document.createElement("br");
 
+        // add the <input>, <label>, and <br> elements into the <div>
         questionContainer.appendChild(questionChoice);
         questionContainer.appendChild(choiceLabel);
         questionContainer.appendChild(questionBr);
       }
+      questionNumber++;  // increment questionNumber for the next question
 
-      questionNumber++;
+      // finally, add the <div> (and its children) into the <form>
       quizForm.appendChild(questionContainer);
     }
 
+    // the following code is used to create a button for the user to click
+    // once they are finished selecting their choices. when clicked, the
+    // button will call the submitAnswers() function
+    
     var submitButton = document.createElement("input");
     submitButton.type = "button";
     submitButton.value = "Submit";
     submitButton.className = "quiz-submit";
     submitButton.onclick = submitAnswers;
+
+    // add the button into the bottom of the <form>
     quizForm.appendChild(submitButton);
 
+
+    // this function is called when the user clicks the 'Submit' button.
+    // it will create a notification asking if the user is sure that they want
+    // to submit their answers. if the user confirms their choices,
+    // then displayFeedback() will be called
     function submitAnswers() {
-      let confirmSubmit;
+
+      // the following for loop will check all of the <form>'s radio inputs.
+      // if any radio inputs are empty, a notification will let the user know.
+      // it will say "some questions are unanswered"
       for (let i = 0; i < quizQuestions.length; i++) {
+        // check if a question doesn't have a choice (radio input) selected
         if (quizForm[`question-${i+1}`].value == "") {
-          confirmSubmit = confirm("Some questions are unanswered. Are you sure you want to submit?");
+          // create a notification letting the user know
+          // that a question(s) is empty
+          let confirmSubmit = confirm("Careful! Some questions are unanswered. Are you sure you want to submit?");
+
+          // if the user cancels submission, don't do anything
           if (confirmSubmit == false) {
             return;
-          } else {
+          }
+          // otherwise, update the page to reflect their score
+          else {
             displayFeedback();
             return;
           }
         }
       }
-      confirmSubmit = confirm("Are you sure you want to submit?");
-      if (confirmSubmit == false) {
+
+      // if there are no empty questions, the notification will only ask if the
+      // user is ready to submit their choices (i.e. the notification will not
+      // say that a question is left unanswered)
+      let confirmSubmit = confirm("Are you sure you want to submit?");
+
+      if (confirmSubmit == false) {  // user cancels submission
         return;
-      } else {
+      }
+      else {  // confirms submission -> update the page
         displayFeedback();
         return;
       }
     }
 
+
+    // this function is called when the user confirms their submission.
+    // each question's <div> (container) will turn green if the user's choice
+    // was correct. otherwise, the <div> will turn red, and text will be added
+    // underneath the <div> indicating the correct choice.
     function displayFeedback() {
-      let score = 0;
+      let score = 0;  // count the number of questions the user gets correct
+
+      // for each question in the quizQuestions array, the corresponding
+      // <div> container and the selected radio <input> will be evaluated.
       for (let i = 0; i < quizQuestions.length; i++) {
+        // get the question's <div> container
         let questionContainer = document.getElementById(`question-${i+1}-container`);
+        // get the question's header
         let questionHeader = document.getElementById(`question-${i+1}-header`);
-        let userChoice = quizForm[`question-${i+1}`].value;  // form radio input
+        // get the user's choice (from the radio <input>)
+        let userChoice = quizForm[`question-${i+1}`].value;
+        // get the question's correct answer (from quizQuestions)
         let actualAnswer = quizQuestions[i].answer
 
+        // if the user selected the correct choice, turn the <div> green
+        // and update the score + question header
         if (userChoice == actualAnswer) {
+          // update the header
           questionHeader.innerHTML += " - Correct!";
+
+          // turn the <div> green
           questionHeader.style.setProperty("color", "green");
           questionHeader.style.setProperty("background-color", "lightgreen");
           questionHeader.style.setProperty("border-bottom", "1px green solid");
           questionContainer.style.setProperty("border", "2px green solid")
 
+          // increment the total # of correct choices
           score++;
-        } else {
+        }
+        // otherwise, turn the <div> red, update the question header, and create
+        // new text indicating the correct choice (below the <div>)
+        else {
+          // update the header
           questionHeader.innerHTML += " - Incorrect";
+
+          // turn the <div> red
           questionHeader.style.setProperty("color", "red");
           questionHeader.style.setProperty("background-color", "#ff9999");
           questionHeader.style.setProperty("border-bottom", "1px red solid");
           questionContainer.style.setProperty("border", "2px red solid");
 
+          // create new text to describe the correct choice
           let correctChoice = document.createElement("p");
           correctChoice.className = "quiz-correction";
           correctChoice.innerHTML = `Answer: ${quizQuestions[i].choices[actualAnswer]}`;
+
+          // insert the new text below the <div>
           questionContainer.after(correctChoice);
         }
       }
 
+      // after evaluating all questions, the following code will display
+      // the user's final score (total correct / total questions)
       let scoreText = document.createElement("p");
       scoreText.className = "quiz-score";
       scoreText.innerHTML = `Score: ${score} / ${quizQuestions.length}`;
+      submitButton.before(scoreText);  // put it above the Submit button
 
-      submitButton.before(scoreText);
+      // finally, after the score is displayed, the page will disable
+      // the Submit button and all choices (radio <inputs>).
       submitButton.style.visibility = "hidden";
-      disableQuestions();
+      disableQuestions();  // disables all radio <inputs>
     }
 
+
+    // this function is used to disable all radio <inputs> (i.e. choices).
+    // it is called when the user confirms their submission.
     function disableQuestions() {
+      // for each choice of a question, get its corresponding <input> element.
+      // then, disable the <input>.
       for (let i = 0; i < quizQuestions.length; i++) {
         for (choice in quizQuestions[i].choices) {
           document.getElementById(`question-${i+1}-${choice}`).disabled = true;
