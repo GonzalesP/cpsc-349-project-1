@@ -21,6 +21,8 @@ font-family: 'Times New Roman', Times, serif; font-size: x-large;}
 <script>
     var q = document.getElementById("q1")
     var t=document.getElementById("testbtn")
+    
+    display1()
 
     function display1(){localStorage.setItem('num',"q1")
     document.getElementById("test").innerHTML="<a href='quiz.html' id='testbtn'>Quiz 1 selected</a>"
@@ -42,7 +44,7 @@ font-family: 'Times New Roman', Times, serif; font-size: x-large;}
     <button onclick="display2()">Quiz2</button><p>Math all basic symbols +,-,etc</p></div><br>
     
    
-<div id="test"><a href="quiz.html" id="test">Default Quiz 1</a></div>
+<div id="test"><a href="quiz.html" id="test">Quiz 1 Default</a></div>
     
 </div>    
 </body>
