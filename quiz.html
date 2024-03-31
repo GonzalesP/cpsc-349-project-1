@@ -7,12 +7,16 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  
  
   <div class="container" id="q1"><a href="menu.html">Back</a> <br></div><br>
+  
   <div class="body-container">
     <form class="quiz-form">
+  <h1 id="t1"></h1>
     </form>  
 </div>
+
 <script src="questions.js"></script>
 <script>
 
@@ -21,17 +25,25 @@ var num=localStorage.getItem("num")
     var quizForm = document.getElementsByClassName("quiz-form")[0];
 
     let questionNumber = 1;
-    
+    let sheet=[];
+    let score =0;
+    let count=0;
+
   if (num=="q2"){
     var quizQuestions=quiz2;
   }
   else{
     var quizQuestions=quiz;
   }
+
     for (i=0;i<10;i++)
     {
     let random = Math.floor(Math.random()*quizQuestions.length);
-    let question=quizQuestions[random];   //randomizes questions    
+    let question=quizQuestions[random];   //randomizes questions   
+    quizQuestions.splice(random,1) //splicing to prevent repeats
+    sheet.push(question.answer)
+
+
       let questionContainer = document.createElement("div");
       questionContainer.className = "question-container";
       let questionHeader = document.createElement("p");
@@ -61,13 +73,46 @@ var num=localStorage.getItem("num")
 
       questionNumber++;
       quizForm.appendChild(questionContainer);
+      
     }
+
+    //saves current answer sheet to check when quiz is submitted
+    let ansSheet=localStorage.getItem("key").split(",");
+    localStorage.setItem("key",sheet)
+    console.log(ansSheet)
+
 
     var submitButton = document.createElement("input");
     submitButton.type = "submit";
+
     submitButton.style.width = "200px";
     submitButton.style.height = "50px";
-    quizForm.appendChild(submitButton);
+
+
+
+function done(){//checking
+    for (i=0;i<10;i++){
+      let search = new URL(window.location.toString()).searchParams;
+      let ans=search.get(`question-${i+1}`)
+      if (ans==ansSheet[i]){      
+        console.log("good job")
+        score++
+        console.log(score)
+      }
+      console.log(ansSheet[i])
+      
+++count
+
+    }
+
+    scoreDisplay= document.getElementById("t1")
+    scoreDisplay.innerHTML=score.toString()+"/10";
+
+  }
+done()
+quizForm.appendChild(submitButton);
   </script>
+
+
 </body>
 </html>
