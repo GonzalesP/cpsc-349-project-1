@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            width: 400px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="registrationForm">
+            <h2>Sign Up</h2>
+            <div>
+                <label for="fnameInput">First Name</label>
+                <input type="text" id="fnameInput" required>
+            </div>
+            <div>
+                <label for="lnameInput">Last Name</label>
+                <input type="text" id="lnameInput" required>
+            </div>
+            <div>
+                <label for="emailInput">Email Address</label>
+                <input type="email" id="emailInput" required>
+            </div>
+            <div>
+                <label for="passwordinput">Password</label>
+                <input type="password" id="passwordinput" required>
+            </div>
+            <div>
+                <label for="checkPasswordinput">Re-Enter Password</label>
+                <input type="password" id="checkPasswordinput" required>
+                <div id="passwordMismatchError" class="error-message" style="display:none;">Passwords do not match</div>
+            </div>
+            <button type="submit" onclick="auth(event)">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function auth(event) {
+            event.preventDefault();
+
+            let firstName = document.getElementById("fnameInput").value;
+            let lastName = document.getElementById("lnameInput").value;
+            let email = document.getElementById("emailInput").value;
+            let password = document.getElementById("passwordinput").value;
+            let confirmPassword = document.getElementById("checkPasswordinput").value;
+
+            if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById("passwordMismatchError").style.display = "block";
+                return;
+            }
+
+            // Store user data in localStorage
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password);
+
+            alert("Registration successful!\nReturning to Login Page.");
+            window.location.assign('login.html');
+        }
+
+        function hidePasswordMismatchError() {
+            document.getElementById("passwordMismatchError").style.display = "none";
+        }
+
+        document.getElementById("checkPasswordinput").addEventListener("input", hidePasswordMismatchError);
+
+    </script>
+
+</body>
+
+</html>
