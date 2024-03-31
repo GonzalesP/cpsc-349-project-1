@@ -199,7 +199,17 @@
 
       submitButton.before(scoreText);
       submitButton.style.visibility = "hidden";
+      disableQuestions();
     }
+
+    function disableQuestions() {
+      for (let i = 0; i < quizQuestions.length; i++) {
+        for (choice in quizQuestions[i].choices) {
+          document.getElementById(`question-${i+1}-${choice}`).disabled = true;
+        }
+      }
+    }
+
   </script>
 </body>
 </html>
