@@ -21,11 +21,26 @@
   <script src="questions.js"></script>
 
 
-  <!-- this script is used to dynamically update the page's appearance -->
+  <!-- this script is used to dynamically update the page's appearance. -->
   <script>
+    // read local storage to figure out which quiz to retrieve from questions.js
+    try {
+      var quizNum = localStorage.getItem('selectedQuiz');
+    }
+    catch (error) {
+      var quizNum = 1;
+    }
+
+    // quizQuestions represents the chosen quiz's JSON array
+    if (quizNum == 1) {
+      var quizQuestions = quiz1;
+    }
+    else {
+      var quizQuestions = quiz2;
+    }
+
     // quizForm represents the <form> element inside the <body>
     var quizForm = document.getElementsByClassName("quiz-form")[0];
-    var quizQuestions = quiz1;
 
     // the following code is used to create a question's related elements
     // it is applied to all questions (objects) of the quiz (array)

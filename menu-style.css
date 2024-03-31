@@ -1,0 +1,48 @@
+/*this is a <div> for the entire <body>
+  the following style will make all elements of the <body> centered*/
+.body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*this is an <h1> saying that the following page is the Menu.
+  the following style will make the <h1> large and bold*/
+.menu-header {
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+
+  margin: 24px;
+}
+
+/*this <div> tag groups the header and description of each quiz in a container
+  the following style will make the container have a black border*/
+.quiz-container {
+  width: 900px;
+  border: 2px black solid;
+  background-color: lightgray;
+
+  margin-bottom: 32px;
+}
+
+/*this is an <h2> tag describing which quiz will be selected when
+  the <div> (or <h2> / <p> inside it) is pressed
+  the following style will make the header bigger and will add spacing*/
+.quiz-header {
+  font-family: sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+
+  margin: 8px 16px 0px 16px;
+}
+
+/*this is a <p> tag describing what the corresponding quiz is about
+  (i.e. it is a text description about the quiz)
+  the following style will add spacing to the text*/
+.quiz-description {
+  font-family: sans-serif;
+  font-size: 20px;
+  
+  margin: 20px 16px;
+}
