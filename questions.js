@@ -9,6 +9,8 @@
 // choices stores key-value pairs for each choice and value (e.g. A: 4)
 // answer indicates which choice is correct
 
+// NOTE: EACH QUIZ MUST HAVE AT LEAST 10 QUESTIONS
+
 
 
 // JSON for Quiz 1 - 12 total questions (10 are selected)
