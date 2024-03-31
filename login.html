@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+  <title>Login Page</title>
+
+  <style>
+    body {
+      background-image: url('tuffy.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: center center;
+      background-color: #080710;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* vh =  viewport height */
+    }
+
+    .form-container {
+      width: 400px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgb(255, 255, 255);
+      box-shadow: 0 0 40px rgb(8, 7, 16);
+      padding: 50px 35px;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 42px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    input {
+      display: block;
+      height: 50px;
+      width: 100%;
+      border-radius: 3px;
+      padding: 0 10px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 300;
+      border-color: #2c2a33 !important;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 100%;
+      background-color: #ffffff;
+      color: #080710;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <!-- Using Bootstrap -->
+    <form>
+      <h3>Login</h3>
+      <div class="mb-3">
+        <label for="emailInput" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <label for="passwordinput" class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordinput" required>
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="auth(event)">Submit</button>
+      <button onclick="redirect()">Register</button>
+    </form>
+  </div>
+
+  <script>
+    // this function is called when the user clicks the 'Submit' button.
+    // the function is used to authenticate the user's given login info
+    // if the login info is valid, they will be redirected to the Menu page.
+    // otherwise, they will be redirected to the Error page.
+    function auth(event) {
+      event.preventDefault();
+
+      // first, get the login info entered by the user
+      let email = document.getElementById("emailInput").value;
+      let password = document.getElementById("passwordinput").value;
+
+      // if any inputs are left blank, alert the user that they cannot proceed
+      if (email == "") {
+        alert("Please enter your email!");
+        return;
+      }
+      else if (password == "") {
+        alert("Please enter your password!");
+        return;
+      }
+
+      // then, check if the user entered the default login
+      if (email == "tuffy@fullerton.edu" && password == "12345678") {
+        alert("Login Success");
+        window.location.assign('menu.html');
+        return;
+      }
+
+      // if they did not use the default login, check if localStorage has a list
+      // (JSON array) of user logins:
+
+      // if the list doesn't exist, then there are no alternative user logins,
+      // which means that any login info other than the default will not work
+      if (localStorage.getItem('users') == null) {
+        // since the login info is invalid, redirect the user to the error page
+        // and alert them of the error.
+        window.location.assign('error.html')
+        alert("Login Failed");
+        return;
+      }
+      // if the list DOES exist, check all of its entries (objects) to
+      // find out whether the user's login info is valid
+      else {
+        let users = JSON.parse(localStorage.getItem('users'));
+        for (loginInfo of users) {
+          // if the user's login info matches an existing entry, redirect them
+          // to the menu page
+          if (email == loginInfo.userEmail &&
+              password == loginInfo.userPassword) {
+            // redirect to the menu page
+            alert("Login Success");
+            window.location.assign('menu.html');
+            return;
+          }
+        }
+
+        // otherwise, if no existing entries match the given info, redirect
+        // the user to the error page (due to invalid login info)
+        window.location.assign('error.html')
+        alert("Login Failed");
+        return;
+      }
+    }
+
+
+    // this function is called when the user clicks the 'Register' button
+    // the function will redirect them to the Registration page.
+    function redirect() {
+      window.location.assign('registration.html');
+    }
+  </script>
+</body>
+</html>

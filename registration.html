@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+
+  <!-- import the CSS for the registration form (read registration-style.css
+    for more info) -->
+  <link rel="stylesheet" type="text/css" href="registration.css" />
+</head>
+
+<body>
+  <!-- this <div> contains the entire <form> for registration. it will be
+    centered on the screen. -->
+  <div class="form-container">
+    <!-- this <form> contains all of the inputs needed for the user to register
+      a new account. the data is stored in localStorage -->
+    <form id="registrationForm">
+      <!-- header text (form title) -->
+      <h2>Sign Up</h2>
+
+      <!-- each <form> parameter will have its own <div>, containing its <label>
+        and <input> text -->
+      <div>
+        <label for="fnameInput">First Name</label>
+        <input type="text" id="fnameInput" required>
+      </div>
+
+      <div>
+        <label for="lnameInput">Last Name</label>
+        <input type="text" id="lnameInput" required>
+      </div>
+
+      <div>
+        <label for="emailInput">Email Address</label>
+        <input type="email" id="emailInput" required>
+      </div>
+
+      <div>
+        <label for="passwordinput">Password</label>
+        <input type="password" id="passwordinput" required>
+      </div>
+
+      <!-- this <div> contains the input for the Re-Enter Password field.
+        if it does not match the Password <input>, the child <div> with
+        the class 'error-message' will become visible. -->
+      <div>
+        <label for="checkPasswordinput">Re-Enter Password</label>
+        <input type="password" id="checkPasswordinput" required>
+        <div
+          id="passwordMismatchError"
+          class="error-message"
+          style="display:none;">Passwords do not match</div>
+      </div>
+
+      <!-- this button is clicked when the user finishes entering all of the
+        required information. it calls the auth(event) function to validate
+        the form and (potentially) create a new user account using
+        the given input texts -->
+      <button type="submit" onclick="auth(event)">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // this function is called when the user is ready to submit their
+    // registration's form data (i.e. clicks the Submit button).
+    function auth(event) {
+      event.preventDefault();
+
+      // first, get the input parameters and check that nothing is left blank
+      let firstName = document.getElementById("fnameInput").value;
+      let lastName = document.getElementById("lnameInput").value;
+      let email = document.getElementById("emailInput").value;
+      let password = document.getElementById("passwordinput").value;
+      let confirmPassword = document.getElementById("checkPasswordinput").value;
+
+      if (firstName.trim() === '' ||
+          lastName.trim() === '' ||
+          email.trim() === '' ||
+          password.trim() === '' ||
+          confirmPassword.trim() === '') {
+        // any field is left blank
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // next, check whether the Password and Re-Enter Password fields match
+      if (password !== confirmPassword) {
+        // if not, make the <div.passwordMismatchError> visible (display block)
+        // so that the user can see the red error message
+        document.getElementById("passwordMismatchError").style.display = "block";
+        return;
+      }
+
+
+      // if all inputs are filled, store the data in localStorage
+
+      // first, check if localStorage has a JSON array for users.
+      if (localStorage.getItem('users') != null) {
+        var users = JSON.parse(localStorage.getItem('users'));
+      }
+      // if not, create a new one and store it.
+      else {
+        var users = [];
+      }
+
+      // then, create a new object for the user's registration info. this object
+      // will be stored in the 'users' JSON array (in localStorage)
+      let userInfo = {
+        userFirstName: firstName,
+        userLastName: lastName,
+        userEmail: email,
+        userPassword: password,
+      }
+      users.push(userInfo);
+
+      // finally, update localStorage to save the newly added user login info
+      // (i.e. the users array, which has a new object)
+      localStorage.setItem('users', JSON.stringify(users));
+
+      // let the user know that registration was successful, and redirect them
+      // to the login page
+      alert("Registration successful!\nReturning to Login Page.");
+      window.location.assign('login.html');
+    }
+
+
+    // this function is called whenever the user reattempts to enter a password.
+    // it will hide the red error text inside the passwordMismatchError <div>
+    function hidePasswordMismatchError() {
+      document.getElementById("passwordMismatchError").style.display = "none";
+    }
+
+    // add event listeners to the password inputs so that
+    // hidePasswordMismatchError() can be called (to hide the red error text)
+    document.getElementById("passwordinput")
+      .addEventListener("input", hidePasswordMismatchError);
+    document.getElementById("checkPasswordinput")
+      .addEventListener("input", hidePasswordMismatchError);
+  </script>
+</body>
+</html>
