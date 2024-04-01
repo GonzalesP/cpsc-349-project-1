@@ -106,7 +106,7 @@ var quiz1 = [
     answer: "C"
   },
   {
-    prompt: "The answer is B",
+    prompt: "What color is grass?",
     choices: {
       A: "Blue",
       B: "Green",
@@ -116,7 +116,7 @@ var quiz1 = [
     answer: "B"
   },
   {
-    prompt: "The answer is D",
+    prompt: "What color is a firetruck?",
     choices: {
       A: "Blue",
       B: "Green",
@@ -126,7 +126,7 @@ var quiz1 = [
     answer: "D"
   },
   {
-    prompt: "The answer is C",
+    prompt: "What color is a grape?",
     choices: {
       A: "Blue",
       B: "Green",
