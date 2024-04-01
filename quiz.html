@@ -4,138 +4,252 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
-  <style>
-    .body-container {
-      /* visibility: hidden; */
-    }
-    .quiz-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 2px red solid;
-    }
-    .question-container {
-      width: 900px;
-      border: 2px black solid;
-      padding: 8px;
-    }
-  </style>
+
+  <!-- import the CSS for the quiz (read quiz-style.css for more info) -->
+  <link rel="stylesheet" type="text/css" href="quiz-style.css" />
 </head>
 <body>
-  <div class="body-container">
-    <form class="quiz-form">
-      <div class="question-container">
-        <p>Question 1</p>
-        <input id="question-1-a" type="radio" name="question-1" value="a" />
-        <label for="question-1-a"></label>A<br />
-        <input id="question-1-b" type="radio" name="question-1" value="b" />
-        <label for="question-1-b"></label>B<br />
-        <input id="question-1-c" type="radio" name="question-1" value="c" />
-        <label for="question-1-c"></label>C<br />
-        <input id="question-1-d" type="radio" name="question-1" value="d" />
-        <label for="question-1-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 2</p>
-        <input id="question-2-a" type="radio" name="question-2" value="a" />
-        <label for="question-2-a"></label>A<br />
-        <input id="question-2-b" type="radio" name="question-2" value="b" />
-        <label for="question-2-b"></label>B<br />
-        <input id="question-2-c" type="radio" name="question-2" value="c" />
-        <label for="question-2-c"></label>C<br />
-        <input id="question-2-d" type="radio" name="question-2" value="d" />
-        <label for="question-2-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 3</p>
-        <input id="question-3-a" type="radio" name="question-3" value="a" />
-        <label for="question-3-a"></label>A<br />
-        <input id="question-3-b" type="radio" name="question-3" value="b" />
-        <label for="question-3-b"></label>B<br />
-        <input id="question-3-c" type="radio" name="question-3" value="c" />
-        <label for="question-3-c"></label>C<br />
-        <input id="question-3-d" type="radio" name="question-3" value="d" />
-        <label for="question-3-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 4</p>
-        <input id="question-4-a" type="radio" name="question-4" value="a" />
-        <label for="question-4-a"></label>A<br />
-        <input id="question-4-b" type="radio" name="question-4" value="b" />
-        <label for="question-4-b"></label>B<br />
-        <input id="question-4-c" type="radio" name="question-4" value="c" />
-        <label for="question-4-c"></label>C<br />
-        <input id="question-4-d" type="radio" name="question-4" value="d" />
-        <label for="question-4-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 5</p>
-        <input id="question-5-a" type="radio" name="question-5" value="a" />
-        <label for="question-5-a"></label>A<br />
-        <input id="question-5-b" type="radio" name="question-5" value="b" />
-        <label for="question-5-b"></label>B<br />
-        <input id="question-5-c" type="radio" name="question-5" value="c" />
-        <label for="question-5-c"></label>C<br />
-        <input id="question-5-d" type="radio" name="question-5" value="d" />
-        <label for="question-5-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 6</p>
-        <input id="question-6-a" type="radio" name="question-6" value="a" />
-        <label for="question-6-a"></label>A<br />
-        <input id="question-6-b" type="radio" name="question-6" value="b" />
-        <label for="question-6-b"></label>B<br />
-        <input id="question-6-c" type="radio" name="question-6" value="c" />
-        <label for="question-6-c"></label>C<br />
-        <input id="question-6-d" type="radio" name="question-6" value="d" />
-        <label for="question-6-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 7</p>
-        <input id="question-7-a" type="radio" name="question-7" value="a" />
-        <label for="question-7-a"></label>A<br />
-        <input id="question-7-b" type="radio" name="question-7" value="b" />
-        <label for="question-7-b"></label>B<br />
-        <input id="question-7-c" type="radio" name="question-7" value="c" />
-        <label for="question-7-c"></label>C<br />
-        <input id="question-7-d" type="radio" name="question-7" value="d" />
-        <label for="question-7-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 8</p>
-        <input id="question-8-a" type="radio" name="question-8" value="a" />
-        <label for="question-8-a"></label>A<br />
-        <input id="question-8-b" type="radio" name="question-8" value="b" />
-        <label for="question-8-b"></label>B<br />
-        <input id="question-8-c" type="radio" name="question-8" value="c" />
-        <label for="question-8-c"></label>C<br />
-        <input id="question-8-d" type="radio" name="question-8" value="d" />
-        <label for="question-8-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 9</p>
-        <input id="question-9-a" type="radio" name="question-9" value="a" />
-        <label for="question-9-a"></label>A<br />
-        <input id="question-9-b" type="radio" name="question-9" value="b" />
-        <label for="question-9-b"></label>B<br />
-        <input id="question-9-c" type="radio" name="question-9" value="c" />
-        <label for="question-9-c"></label>C<br />
-        <input id="question-9-d" type="radio" name="question-9" value="d" />
-        <label for="question-9-d"></label>D<br />
-      </div>
-      <div class="question-container">
-        <p>Question 10</p>
-        <input id="question-10-a" type="radio" name="question-10" value="a" />
-        <label for="question-10-a"></label>A<br />
-        <input id="question-10-b" type="radio" name="question-10" value="b" />
-        <label for="question-10-b"></label>B<br />
-        <input id="question-10-c" type="radio" name="question-10" value="c" />
-        <label for="question-10-c"></label>C<br />
-        <input id="question-10-d" type="radio" name="question-10" value="d" />
-        <label for="question-10-d"></label>D<br />
-      </div>
-      <input type="submit" style="width: 200px; height: 50px;" />
-    </form>
-  </div>
+  <!-- this <form> will contain all of the elements related to the quiz
+    (e.g. questions, choices, etc.) -->
+  <form class="quiz-form">
+  </form>
+
+
+  <!-- this script imports the JSON arrays of each quiz. the JSON array
+    contains all of the questions and related info of each quiz
+    (read questions.js for more info) -->
+  <script src="questions.js"></script>
+
+
+  <!-- this script is used to dynamically update the page's appearance. -->
+  <script>
+    // check localStorage to figure out which quiz to retrieve from questions.js
+    try {
+      var quizNum = localStorage.getItem('selectedQuiz');
+    }
+    catch (error) {
+      var quizNum = 1;
+    }
+
+    // quizQuestions represents the chosen quiz's JSON array
+    if (quizNum == 1) {
+      var quizQuestions = quiz1;
+    }
+    else {
+      var quizQuestions = quiz2;
+    }
+
+    // quizForm represents the <form> element inside the <body>
+    var quizForm = document.getElementsByClassName("quiz-form")[0];
+
+    // the following for loop will select 10 random questions from the quiz.
+    // then, it will create the needed HTML elements for each question
+    // (e.g. <div> container, <header> for question number, etc.)
+
+    // save the answers of all questions (for evaluating the user's score)
+    var answers = [];
+
+    for (let i = 0; i < 10; i++) {
+      // first, a random question is selected from the quizQuestions
+      let random = Math.floor(Math.random() * quizQuestions.length);
+      let question = quizQuestions[random];
+      // save the selected question's answer
+      answers.push(question.answer);
+      // "pop" the selected question to prevent repeats
+      quizQuestions.splice(random,1);
+
+      // then, a <div> is created to group the related elements. it will use
+      // the question-container style
+      let questionContainer = document.createElement("div");
+      questionContainer.id = `question-${i+1}-container`
+      questionContainer.className = "question-container";
+
+      // next, an <h1> is created to indicate the question's number
+      // (e.g. Question 1, Question 2, etc.)
+      let questionHeader = document.createElement("h1");
+      questionHeader.id = `question-${i+1}-header`
+      questionHeader.innerHTML = `Question ${i+1}`;
+
+      // then, a <p> is created to display the question's prompt
+      // (e.g. "What is 2+2?")
+      let questionPrompt = document.createElement("p");
+      questionPrompt.innerHTML = question.prompt;
+
+      // the <h1> and <p> elements are added into the <div>
+      questionContainer.appendChild(questionHeader);
+      questionContainer.appendChild(questionPrompt);
+
+      // next, for each choice of the question, a radio <input> and <label>
+      // will be created using the for in loop below. there will be
+      // a total of 4 <inputs> and <labels> created for each question (A,B,C,D)
+      for (choice in question.choices) {
+        // create the radio <input>
+        let questionChoice = document.createElement("input");
+        questionChoice.id = `question-${i+1}-${choice}`;
+        questionChoice.type = "radio"
+        questionChoice.name = `question-${i+1}`  // input name
+        questionChoice.value = choice;  // input value (i.e. question choice)
+
+        // create the <label>
+        let choiceLabel = document.createElement("label");
+        choiceLabel.htmlFor = questionChoice.id;  // input 'for' attribute
+        choiceLabel.innerHTML = question.choices[choice];  // choie text
+
+        // create a <br> to move the next input onto a separate line
+        let questionBr = document.createElement("br");
+
+        // add the <input>, <label>, and <br> elements into the <div>
+        questionContainer.appendChild(questionChoice);
+        questionContainer.appendChild(choiceLabel);
+        questionContainer.appendChild(questionBr);
+      }
+
+      // finally, add the <div> (and its children) into the <form>
+      quizForm.appendChild(questionContainer);
+    }
+
+    // the following code is used to create a button for the user to click
+    // once they are finished selecting their choices. when clicked, the
+    // button will call the submitAnswers() function
+    
+    var submitButton = document.createElement("input");
+    submitButton.type = "button";
+    submitButton.value = "Submit";
+    submitButton.className = "quiz-submit";
+    submitButton.onclick = submitAnswers;
+
+    // add the button into the bottom of the <form>
+    quizForm.appendChild(submitButton);
+
+
+
+    // HELPER FUNCTIONS
+
+    // this function is called when the user clicks the 'Submit' button.
+    // it will create a notification asking if the user is sure that they want
+    // to submit their answers. if the user confirms their choices,
+    // then displayFeedback() will be called
+    function submitAnswers() {
+
+      // the following for loop will check all of the <form>'s radio inputs.
+      // if any radio inputs are empty, a notification will let the user know.
+      // it will say "some questions are unanswered"
+      for (let i = 0; i < 10; i++) {
+        // check if a question doesn't have a choice (radio input) selected
+        if (quizForm[`question-${i+1}`].value == "") {
+          // create a notification letting the user know that a question(s) is empty
+          let confirmSubmit = confirm("Careful! Some questions are unanswered.\nAre you sure you want to submit?");
+
+          // if the user cancels submission, don't do anything
+          if (confirmSubmit == false) {
+            return;
+          }
+          // otherwise, update the page to reflect their score
+          else {
+            displayFeedback();
+            return;
+          }
+        }
+      }
+
+      // if there are no empty questions, the notification will only ask if the
+      // user is ready to submit their choices (i.e. the notification will not
+      // say that a question is left unanswered)
+      let confirmSubmit = confirm("Are you sure you want to submit?");
+
+      if (confirmSubmit == false) {  // user cancels submission
+        return;
+      }
+      else {  // confirms submission -> update the page
+        displayFeedback();
+        return;
+      }
+    }
+
+
+    // this function is called when the user confirms their submission.
+    // each question's <div> (container) will turn green if the user's choice
+    // was correct. otherwise, the <div> will turn red, and text will be added
+    // underneath the <div> indicating the correct choice.
+    function displayFeedback() {
+      let score = 0;  // count the number of questions the user gets correct
+
+      // for each question, the corresponding <div> container and
+      // the selected radio <input> will be evaluated (compared with answers).
+      for (let i = 0; i < answers.length; i++) {
+        // get the question's <div> container
+        let questionContainer = document.getElementById(`question-${i+1}-container`);
+        // get the question's header
+        let questionHeader = document.getElementById(`question-${i+1}-header`);
+        // get the user's choice (from the radio <input>)
+        let userChoice = quizForm[`question-${i+1}`].value;
+        // get the question's correct answer
+        let actualAnswer = answers[i]
+
+        // if the user selected the correct choice, turn the <div> green
+        // and update the score + question header
+        if (userChoice == actualAnswer) {
+          // update the header
+          questionHeader.innerHTML += " - Correct!";
+
+          // turn the <div> green
+          questionHeader.style.setProperty("color", "green");
+          questionHeader.style.setProperty("background-color", "lightgreen");
+          questionHeader.style.setProperty("border-bottom", "1px green solid");
+          questionContainer.style.setProperty("border", "2px green solid")
+
+          // increment the total # of correct choices
+          score++;
+        }
+        // otherwise, turn the <div> red, update the question header, and create
+        // new text indicating the correct choice (below the <div>)
+        else {
+          // update the header
+          questionHeader.innerHTML += " - Incorrect";
+
+          // turn the <div> red
+          questionHeader.style.setProperty("color", "red");
+          questionHeader.style.setProperty("background-color", "#ff9999");
+          questionHeader.style.setProperty("border-bottom", "1px red solid");
+          questionContainer.style.setProperty("border", "2px red solid");
+
+          // create new text to indicate the correct choice
+          let correctChoice = document.createElement("p");
+          correctChoice.className = "quiz-correction";
+          correctChoice.innerHTML = `Answer: ${answers[i]}`;
+
+          // insert the new text below the <div>
+          questionContainer.after(correctChoice);
+        }
+      }
+
+      // after evaluating all questions, the following code will display
+      // the user's final score (total correct / total questions)
+      let scoreText = document.createElement("p");
+      scoreText.className = "quiz-score";
+      scoreText.innerHTML = `Score: ${score} / 10`;
+      submitButton.before(scoreText);  // put it above the Submit button
+
+      // finally, after the score is displayed, the page will disable
+      // the Submit button and all choices (radio <inputs>).
+      submitButton.style.visibility = "hidden";
+      disableQuestions();  // disables all radio <inputs>
+    }
+
+
+    // this function is used to disable all radio <inputs> (i.e. choices).
+    // it is called when the user confirms their submission.
+    function disableQuestions() {
+      // for each choice of a question, get its corresponding <input> element.
+      // then, disable the <input>.
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(`question-${i+1}-A`).disabled = true;
+        document.getElementById(`question-${i+1}-B`).disabled = true;
+        document.getElementById(`question-${i+1}-C`).disabled = true;
+        document.getElementById(`question-${i+1}-D`).disabled = true;
+      }
+    }
+
+  </script>
 </body>
 </html>

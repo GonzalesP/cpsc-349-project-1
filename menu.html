@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+
+  <!-- import the CSS for the menu (read menu-style.css for more info) -->
+  <link rel="stylesheet" type="text/css" href="menu-style.css" />
+</head>
+<body>
+  <!-- this div is used to center all elements of the page -->
+  <div class="body-container">
+    <!-- this header represents the Menu Title -->
+    <h1 class="menu-header">Menu</h1>
+
+    <!-- this div groups all of the elements of Quiz 1 -->
+    <div class="quiz-container" onclick="startquiz(1)">
+      <h2 class="quiz-header">Quiz 1</h2>
+      <p class="quiz-description">Random Trivia Questions</p>
+    </div>
+
+    <!-- this div groups all of the elements of Quiz 2 -->
+    <div class="quiz-container" onclick="startquiz(2)">
+      <h2 class="quiz-header">Quiz 2</h2>
+      <p class="quiz-description">Basic Math Operations (+, -, etc.)</p>
+    </div>
+  </div>
+
+  <!-- this script is used to start a Quiz -->
+  <script>
+
+    // this function is called when the user clicks a <div> quiz-container.
+    // it will direct the user to the quiz.html page.
+    // the quizNum parameter indicates which quiz is selected (i.e. 1 or 2).
+    // the quizNum is stored in local storage, so that when the quiz.html page
+    // begins rendering, it will know which quiz to render
+    function startquiz(quizNum) {
+      localStorage.setItem('selectedQuiz', quizNum);
+      window.location.assign('quiz.html');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/*the following style will make the body use the tuffy image
+  as its background. it will also make all elements of the body
+  (i.e. the Login form) placed in the center of the screen */
+body {
+  background-image: url('tuffy.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: center center;
+  background-color: #080710;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* vh =  viewport height */
+}
+
+/*this is a <div> containing the entire Login form
+  the following style will give the <div> a nice white box to stand out more
+  from the background*/
+.form-container {
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 0 0 40px rgb(8, 7, 16);
+  padding: 50px 35px;
+}
+
+/*the <form> has an <h1> with its name in it ("Login")
+  the following style will make the text gray
+  and in the center of the container*/
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+/*each <input> text field has a label (e.g. Email Address)
+  the following style will make each label gray and bold*/
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/*the following style will make each <input> text field look fancier by
+  increasing size, rounding corners, and using borders/margins/padding.*/
+input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  border-color: #2c2a33 !important;
+}
+
+/*the following style is used to adjust the formatting of
+  the Submit and Register buttons. this style compliments the bootstrap CSS
+  imported in login.html*/
+button {
+  margin: 10px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 15px 0px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+}

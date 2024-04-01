@@ -1,0 +1,65 @@
+/*the following style will make the body's <form> centered*/
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/*this is a <div> containing the entire registration form
+  the following style will give the <div> a nice white box to stand out more
+  from the background*/
+.form-container {
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+}
+
+/*the <form> has an <h1> with its name in it ("Sign Up")
+  the following style will make the text gray
+  and in the center of the container*/
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333333;
+}
+
+/*each <input> text field has a label (e.g. First name)
+  the following style will make each label gray and bold*/
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555555;
+}
+
+/*the following style will add some spacing under each text input*/
+input {
+  margin-bottom: 12px;
+}
+
+/*the error-message class is assigned to a <div> with plain text. the text
+  becomes visible when the Passwords entered by the user do not match.
+  the following style will make this plain text red*/
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/*the following style will make the submit button blue*/
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 43%;
+}
