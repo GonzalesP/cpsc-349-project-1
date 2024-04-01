@@ -8,7 +8,7 @@
 
   <!-- import the CSS for the registration form (read registration-style.css
     for more info) -->
-  <link rel="stylesheet" type="text/css" href="registration.css" />
+  <link rel="stylesheet" type="text/css" href="styles/registration-style.css" />
 </head>
 
 <body>
@@ -63,6 +63,10 @@
     </form>
   </div>
 
+
+  <!-- the following script is used to create a new user account
+    in localStorage, as well as display the mismatched passwords
+    error message when needed -->
   <script>
     // this function is called when the user is ready to submit their
     // registration's form data (i.e. clicks the Submit button).
@@ -88,7 +92,7 @@
 
       // next, check whether the Password and Re-Enter Password fields match
       if (password !== confirmPassword) {
-        // if not, make the <div.passwordMismatchError> visible (display block)
+        // if not, make the <div.passwordMismatchError> visible (display: block)
         // so that the user can see the red error message
         document.getElementById("passwordMismatchError").style.display = "block";
         return;
@@ -101,7 +105,7 @@
       if (localStorage.getItem('users') != null) {
         var users = JSON.parse(localStorage.getItem('users'));
       }
-      // if not, create a new one and store it.
+      // if not, create a new one.
       else {
         var users = [];
       }

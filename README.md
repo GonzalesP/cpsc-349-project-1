@@ -3,7 +3,7 @@ This repo contains all of the code for CPSC 349-01 Project 1.
 Created by Kinsey Vo, Eric Thang, and Pascual Gonzales.
 
 ## Running this project
-To get started, open login.html in a browser of your choice. Then, follow these steps:
+To get started, download/clone this repo and open login.html in a browser of your choice. Then, follow these steps:
 1. To sign in, you can use the default login:
 * Email Address: tuffy@fullerton.edu
 * Password: 12345678
