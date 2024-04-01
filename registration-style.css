@@ -51,3 +51,15 @@ input {
   font-size: 14px;
   margin-top: 5px;
 }
+
+/*the following style will make the submit button blue*/
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 43%;
+}
