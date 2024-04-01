@@ -1,15 +1,22 @@
+/*the following style will make the body use the tuffy image
+  as its background. it will also make all elements of the body
+  (i.e. the Login form) placed in the center of the screen */
 body {
   background-image: url('tuffy.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-image: center center;
   background-color: #080710;
+
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* vh =  viewport height */
 }
 
+/*this is a <div> containing the entire Login form
+  the following style will give the <div> a nice white box to stand out more
+  from the background*/
 .form-container {
   width: 400px;
   background-color: rgb(255, 255, 255);
@@ -20,13 +27,18 @@ body {
   padding: 50px 35px;
 }
 
-h3 {
+/*the <form> has an <h1> with its name in it ("Login")
+  the following style will make the text gray
+  and in the center of the container*/
+h1 {
   font-size: 32px;
   font-weight: 500;
   line-height: 42px;
   text-align: center;
 }
 
+/*each <input> text field has a label (e.g. Email Address)
+  the following style will make each label gray and bold*/
 label {
   display: block;
   margin-top: 30px;
@@ -34,6 +46,8 @@ label {
   font-weight: 500;
 }
 
+/*the following style will make each <input> text field look fancier by
+  increasing size, rounding corners, and using borders/margins/padding.*/
 input {
   display: block;
   height: 50px;
@@ -46,6 +60,9 @@ input {
   border-color: #2c2a33 !important;
 }
 
+/*the following style is used to adjust the formatting of
+  the Submit and Register buttons. this style compliments the bootstrap CSS
+  imported in login.html*/
 button {
   margin: 10px;
   width: 100%;
